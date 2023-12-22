@@ -1,1 +1,1 @@
-npm install = commande à faire pour lancé le site
+npm start = commande à faire pour lancé le site
