@@ -1,0 +1,35 @@
+<!-- views/mesgroupes.handlebars -->
+
+{{> header}}
+
+{{!-- Si l'utilisateur crée un groupe dont le nom est déjà pris par quelqu'un d'autre --}}
+{{#if errorGroupeAlweadyExists}}
+  <p style="color: red;">{{errorGroupeAlweadyExists}}</p>
+{{/if}}
+
+<div style="display: flex;">
+  <!-- Liste des groupes de l'utilisateur à gauche -->
+  <div style="flex: 1;">
+    <h2>Vos Groupes</h2>
+    <ul>
+      {{#each userGroups}}
+        <li class="group-item">
+          <a class="box" href="/mesgroupes/{{groupe.groupename}}/members">{{groupe.groupename}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+  <!-- Formulaire de création de groupe à droite (normalement) -->
+  <div style="width: 40%;">
+    <h2>Créer un Nouveau Groupe</h2>
+    <form method="post" action="/mesgroupes/create-group">
+      <label for="newGroupName">Nom du Groupe:</label>
+      <input type="text" id="newGroupName" name="newGroupName" required>
+      <button type="submit">Créer</button>
+    </form>
+  </div>
+</div>
+
+{{> footer}}

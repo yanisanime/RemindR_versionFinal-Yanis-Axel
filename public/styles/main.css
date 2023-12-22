@@ -1,0 +1,425 @@
+/* styles/main.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e3effb; /* Couleur de fond de la page */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+header, footer {
+    background-color: #1f4162; /* Couleur de fond pour l'en-tête et le pied de page */
+    color: #fff; /* Couleur du texte pour l'en-tête et le pied de page */
+}
+
+.content {
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-top: auto;
+}
+
+
+header {
+    background-color: #1f4162;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.footer-hidden {
+    transform: translateY(100%);
+}
+
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+button {
+    background-color: #4399f4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2f67a3;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th{
+    background-color: #2279d6;
+}
+
+table, th, td {
+    border: 1px solid #dee2e6;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.color-cell {
+    padding: 0; /* Supprimez le rembourrage pour que la couleur remplisse toute la cellule */
+}
+
+.menu a.nav-link:hover {
+    color: #48daf3; /* Changement de couleur au survol vers blanc */
+}
+
+/* Pour le formulaire de création de groupe dans le groupe.handlebars */
+
+.group-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+.group-item {
+    margin-bottom: 10px;
+    list-style-type: none;
+    width: 40%;
+}
+
+.box{
+width: 100%;
+}
+
+.group-item a {
+text-decoration: none;
+color: #333; /* Couleur du texte pour les liens non visités */
+font-weight: bold;
+display: inline-block;
+padding: 5px 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+  
+.group-item a:hover {
+background-color: #f0f0f0; /* Couleur de fond lors du survol */
+}
+
+/* Pour le formulaire de création de rappelle dans le groupeMenbers.handlebars */
+.add-reminder-section {
+    background-color: #d0e3f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Ajoute de l'espace en bas pour séparer les sections */
+}
+
+.add-reminder-section label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.add-reminder-section input,
+.add-reminder-section select,
+.add-reminder-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-reminder-section button {
+    background-color: #4399f4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-reminder-section button:hover {
+    background-color:#3880cc;
+}
+
+
+/* Pour le formulaire de recherche d'utilisateur dans le groupeMember.handlebars  */
+
+.add-member-form {
+    background-color: #d0e3f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Ajoute de l'espace en bas pour séparer les sections */
+}
+
+.add-member-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.add-member-form input {
+    width: calc(100% - 18px); /* Ajuste la largeur en fonction de la marge du conteneur */
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-member-form button {
+    background-color: #4399f4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-member-form button:hover {
+    background-color: #377bc4;
+}
+
+
+/* LA section qui suist est pour la mise en forme du formulaire pour Register.handlebars */
+
+.register-form {
+    background-color: #d0e3f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* La largeur du formulaire occupe toute la largeur disponible */
+    margin: 20px auto; /* Centrer le formulaire horizontalement */
+}
+
+.register-form h1 {
+    color: #333;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.register-form input {
+    width: calc(100% - 18px);
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.register-form button {
+    background-color: #4399f4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.register-form button:hover {
+    background-color: #367bc5;
+}
+
+
+/* Parti pour le formulaire de connexion */
+
+.auth-form {
+    background-color: #d0e3f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.auth-form input {
+    width: calc(100% - 18px);
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.auth-form button {
+    background-color: #4399f4;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.auth-form button:hover {
+    background-color: #367bc5;
+}
+
+.auth-form a {
+    color: #007bff;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+} 
+
+
+
+
+/* CEtte section est pour le formulaire d'Edit des rappels (poru la modification des rappelles) */
+
+
+.reminder-form {
+    background-color: #d0e3f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.reminder-form .form-group {
+    margin-bottom: 15px;
+}
+
+.reminder-form label {
+    display: block;
+    font-weight: bold;
+}
+
+.reminder-form input,
+.reminder-form textarea,
+.reminder-form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.reminder-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reminder-form button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Pour une parti dans le groupeMember qui présente les membre du groupe */
+.members-section {
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: 20px; /* Aligner à gauche */
+}
+
+.members-title {
+    background-color: rgba(0, 123, 255, 0.2); /* Fond légèrement transparent */
+    padding: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.member-list {
+    list-style: none;
+    padding: 0;
+}
+
+.member-item {
+    background-color: rgba(248, 249, 250, 0.8); /* Fond légèrement transparent */
+    border: 1px solid #dee2e6;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
+  /* Cette section sert à stylisé la petit légende qui explique à quoi servent les couleur */
+.color-legend {
+    margin-top: 20px;
+    max-width: 400px;
+    margin-left: 20px;
+    background-color: #f8f9fa; /* Fond de la légende */
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+
+

@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  //provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  userId    Int    @id @default(autoincrement())
+  username String @unique
+  useremail String
+  password String
+
+  groupe UserGroup[]
+  rappelle Rappelle[] 
+}
+
+model Group {
+  groupename String @unique 
+  users UserGroup[]
+  rapelles Rappelle[]
+}
+
+model Rappelle {
+  rappelleId Int @id @default(autoincrement())
+  rappellename String 
+  description String 
+  couleur String
+  dateEcheance DateTime
+
+  creator User @relation(fields: [creatorID], references: [userId])
+  creatorID Int
+  
+  groupeParentName String 
+  groupeParent Group @relation(fields: [groupeParentName],references: [groupename])
+
+}
+
+model UserGroup {
+  user User @relation(fields: [userID], references: [userId])
+  userID Int
+  groupe  Group @relation(fields: [groupeName], references: [groupename])
+  groupeName String
+  @@id([userID, groupeName])
+}

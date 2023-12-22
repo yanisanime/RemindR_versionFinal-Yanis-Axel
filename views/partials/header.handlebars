@@ -1,0 +1,33 @@
+<!-- partials/header.handlebars -->
+<header>
+
+
+    <div class="container">
+        <h1 id="site-title">Remindr</h1>
+        <nav class="menu">
+            <ul>
+                {{#if user}}
+                    <li>
+                        <p>Bienvenu {{dashboardData.username}}</p>
+                    </li>
+                    <li>
+                        <a href="/dashboard" class="nav-link">Tableau de bord</a>
+                    </li>
+                    <li>
+                        <a href="/mesgroupes" class="nav-link">Mes Groupes</a>
+                    </li>
+                    <li>
+                        <a href="/logout" class="nav-link">Déconnexion</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href="/register" class="nav-link">Inscription</a>
+                    </li>
+                    <li>
+                        <a href="/login" class="nav-link">Connexion</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</header>

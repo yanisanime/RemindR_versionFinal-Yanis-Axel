@@ -1,0 +1,75 @@
+{{!-- {{> header}}
+    <h1>Modifier le Rappel</h1>
+    <form method="POST" action="/mesgroupes/{{groupename}}/edit-reminder_process/{{rappelle.rappelleId}}">
+        
+        <input type="hidden" name="groupename" value="{{groupename}}">
+        <label for="remindname">Nom du Rappel:</label>
+        <input type="text" id="remindname" name="remindname" value="{{rappelle.rappellename}}" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{rappelle.description}}</textarea><br>
+
+        <label for="deadline">Date d'échéance:</label>
+        <input type="date" id="deadline" name="deadline" value="{{rappelle.dateEcheance}}" required><br>
+
+        <div class="form-group col-md-6">
+            <label for="color">Couleur :</label>
+            <select class="form-control" name="color" id="color-select" required>
+                <option value="">--Please choose an option--</option>
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Purple">Purple</option>
+                <option value="Black">Black</option>
+            </select>
+        </div>
+
+        <button type="submit">Enregistrer les modifications</button>
+    </form>
+
+</html>
+{{> footer}}
+ --}}
+
+
+ {{> header}}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 reminder-form">
+            <h1 class="text-center mb-4">Modifier le Rappel</h1>
+            <form method="POST" action="/mesgroupes/{{groupename}}/edit-reminder_process/{{rappelle.rappelleId}}">
+                <input type="hidden" name="groupename" value="{{groupename}}">
+                <div class="form-group">
+                    <label for="remindname">Nom du Rappel:</label>
+                    <input type="text" class="form-control" id="remindname" name="remindname" value="{{rappelle.rappellename}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="description" required>{{rappelle.description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Date d'échéance:</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" value="{{rappelle.dateEcheance}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="color">Couleur :</label>
+                    <select class="form-control" name="color" id="color-select" required>
+                        <option value="">--Please choose an option--</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Black">Black</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Enregistrer les modifications</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{> footer}}
+

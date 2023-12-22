@@ -1,0 +1,10 @@
+<!-- partials/footer.handlebars --> 
+
+<footer> 
+    <div class="container"> 
+        <p>Remindr - Application de gestion de rappels</p> <!-- Ajout d'une phrase d'accroche -->
+        {{#if user}}
+            <p>Connecté en tant que : {{dashboardData.username}}</p> 
+        {{/if}}
+    </div> 
+</footer>

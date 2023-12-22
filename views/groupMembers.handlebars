@@ -1,0 +1,143 @@
+{{> header}}
+
+<div class="members-section">
+  <ul class="member-list">
+    <h2>Membres du Groupe</h2>
+    {{#each groupMembers}}
+      <li class="member-item">{{user.username}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class="add-member-form">
+  <h2>Ajouter un nouveau membre</h2>
+  {{#if errorUserNotFound}}
+    <p style="color: red;">{{errorUserNotFound}}</p>
+  {{/if}}
+
+  {{#if errorUserExists}}
+    <p style="color: red;">{{errorUserExists}}</p>
+  {{/if}}
+
+    <form method="post" action="/mesgroupes/{{groupename}}/add-member">
+        <label for="searchUser">Entrez le nom d'un de vos amis</label>
+        <input type="text" id="searchUser" name="searchUser" required>
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
+
+
+{{!-- Ctte parti sert à montrer à l'utilisateur que les couleur ont une signification --}}
+
+<div class="color-legend">
+  <h2>Légende des Couleurs</h2>
+  <ul>
+    <li class="legend-item">
+      <div class="legend-color" style="background-color: red;"></div>
+      Quelque chose d'urgent
+    </li>
+    <li class="legend-item">
+      <div class="legend-color" style="background-color: green;"></div>
+      Important pour toi
+    </li>
+    <li class="legend-item">
+      <div class="legend-color" style="background-color: blue;"></div>
+      Quelque chose de simple
+    </li>
+    <li class="legend-item">
+      <div class="legend-color" style="background-color: yellow;"></div>
+      Tache très compliqué à réalisé
+    </li>
+    <li class="legend-item">
+      <div class="legend-color" style="background-color: purple;"></div>
+      Quelque chose qui prend du temps
+    </li>
+    <li class="legend-item">
+      <div class="legend-color" style="background-color: black;"></div>
+      impossible à réalisé
+    </li>
+  </ul>
+</div>
+
+
+
+
+<div class="add-reminder-section">
+  <h2 class="card-title">Ajouter un nouveau Rappel</h2>
+  <form method="post" action="/mesgroupes/{{groupename}}/createreminder" class="align-items-start">
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="remindname">Nom du rappel :</label>
+              <input type="text" class="form-control" id="remindname" name="remindname" required>
+          </div>
+          <div class="form-group col-md-6">
+              <label for="deadline">Date d'échéance :</label>
+              <input type="date" class="form-control" id="deadline" name="deadline" required>
+          </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="color">Couleur :</label>
+              <select class="form-control" name="color" id="color-select" required>
+                  <option value="">--Please choose an option--</option>
+                  <option value="Red">Red</option>
+                  <option value="Green">Green</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Yellow">Yellow</option>
+                  <option value="Purple">Purple</option>
+                  <option value="Black">Black</option>
+              </select>
+          </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-12">
+              <label for="description">Description :</label>
+              <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>
+
+
+
+
+{{#if listRemindGroupe.length}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom du Rappel</th>
+          <th>Description</th>
+          <th>Couleur</th>
+          <th>Date d'échéance</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each listRemindGroupe}}
+          <tr>
+            <td>{{rappellename}}</td>
+            <td>{{description}}</td>
+            <td class="color-cell" style="background-color: {{couleur}};"></td>
+            <td>{{dateEcheance}}</td>
+            <td>
+              <form method="POST" action="/mesgroupes/{{groupeParentName}}/delete-reminder/{{rappelleId}}">
+                <input type="hidden" name="groupename" value="{{groupeParentName}}">
+                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+              </form>
+              {{!-- Pour le bouton qui sert à modifier les rapels --}}
+                <form method="GET" action="/mesgroupes/{{groupeParentName}}/edit-reminder/{{rappelleId}}">
+                <input type="hidden" name="groupename" value="{{groupeParentName}}">
+                <button type="submit" class="btn btn-danger btn-sm">Modifier</button> 
+                </form>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>Il n'y a aucun rappel pour l'instant.</p>
+  {{/if}}
+
+
+{{> footer}}

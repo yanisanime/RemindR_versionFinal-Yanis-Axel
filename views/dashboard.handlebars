@@ -1,0 +1,38 @@
+{{> header}}
+
+<form action="/dashboard/pasTerminer" method="POST">
+  <button type="submit">Afficher les rappels à venir</button>
+</form>
+
+<form action="/dashboard" method="POST">
+  <button type="submit">Afficher tous les rappels</button>
+</form>
+
+{{#if reminduser.length}}
+  <table>
+    <thead>
+      <tr>
+        <th>Nom du Rappel</th>
+        <th>Description</th>
+        <th>Couleur</th>
+        <th>Date d'échéance</th>
+      </tr>
+    </thead>
+    <tbody>
+     {{#each reminduser}}
+       <tr>
+          <td>{{rappellename}}</td>
+          <td>{{description}}</td>
+          <td class="color-cell" style="background-color: {{couleur}};"></td>
+          <td>{{dateEcheance}}</td>
+        </tr>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>Il n'y a aucun rappel pour l'instant.</p>
+{{/if}}
+
+{{> footer}}
+
